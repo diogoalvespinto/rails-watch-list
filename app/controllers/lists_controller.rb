@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: %i[show destroy]
+
   def index
     @lists = List.all
   end
@@ -21,12 +23,24 @@ class ListsController < ApplicationController
     end
   end
 
-  def show
-    @list = List.find(params[:id])
+  def destroy
+    @list.destroy
+
+    respond_to do |format|
+      format.html { redirect_to lists_path, notice: 'List was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
+  def show
+    # @bookmark = Bookmark.find(params[:bookmark_id])
+  end
 
   private
+
+  def set_list
+    @list = List.find(params[:id])
+  end
 
   def list_params
     params.require(:list).permit(:name)
