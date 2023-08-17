@@ -1,0 +1,5 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+    <%= link_to "Back to lists", lists_path %>
+    <%= link_to "Delete this list", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+</div>
