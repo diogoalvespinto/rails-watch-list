@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    
   end
 
   def new
@@ -32,9 +33,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def show
-    # @bookmark = Bookmark.find(params[:bookmark_id])
-  end
+  def show; end
 
   private
 
