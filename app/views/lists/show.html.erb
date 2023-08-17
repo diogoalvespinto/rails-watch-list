@@ -1,13 +1,21 @@
-<div class="container">
-  <h1><%= @list.name %></h1>
-<ul>
-  <li>
+<div class="container d-flex">
   <% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.comment %>
-  <%# <% raise %> %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="">
+  <div class="card-body">
+    <h5 class="card-title"> <strong> <%= bookmark.movie.title %> </strong> </h5>
+    <p class="card-text">  <%= bookmark.movie.overview %></p>
+    <p class="card-text"> <strong>Rating:</strong> <%= bookmark.movie.rating %></p>
+    <p class="card-text"> <strong>Bookmark:</strong> <%= bookmark.comment.capitalize %></p>
+  <%= link_to "Delete this movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this movie?" } %>
+  </div>
+</div>
   <% end %>
-  </li>
-</ul>
+</div>
+<div class="container d-flex justify-content-around">
+  <%= link_to "Add a movie to this list", new_list_bookmark_path(@list) %>
+  <br>
   <%= link_to "Back to lists", lists_path %>
+  <br>
   <%= link_to "Delete this list", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
 </div>

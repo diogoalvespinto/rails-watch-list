@@ -17,12 +17,12 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark = Bookmark.find(@bookmark.list)
+    @bookmark = Bookmark.find(params[:id])
 
     @bookmark.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_path, notice: 'Bookmark was successfully destroyed.' }
+      format.html { redirect_to list_path, notice: 'Bookmark was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

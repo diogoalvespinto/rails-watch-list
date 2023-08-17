@@ -2,7 +2,7 @@
 
 <div>
   <% @lists.each do |list| %>
-    <%= list.name %>
+    <%= list.name.capitalize %>
     <p>
       <%= link_to "Show this list", list %>
     </p>
