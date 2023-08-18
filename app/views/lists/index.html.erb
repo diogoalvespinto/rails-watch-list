@@ -2,9 +2,9 @@
   <h1 class="text-center">Watchlists</h1>
 
 
-  <div class="d-flex align-items-start flex-column align-items-center m-5" style="height: 200px;">
+  <div class="d-flex align-items-start flex-column align-items-center m-5" style="height: 500px;">
     <% @lists.each do |list| %>
-      <div class="card-category d-flex align-self-stretch m-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+      <div class="card-category d-flex align-self-stretch m-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, crop: :fill %>')">
         <%= link_to list.name.capitalize, list, :class => "d-flex justify-content-center" %>
       </div>
     <% end %>
