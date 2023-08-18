@@ -6,11 +6,11 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
-
+    <%= f.submit "Create watchlist", :class => "btn btn-outline-secondary"%>
   </div>
 <% end %>
 

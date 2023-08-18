@@ -13,9 +13,11 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     respond_to do |format|
-      if @list.save
-        format.html { redirect_to list_path(@list), notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
+      if @list.photo.attached?
+        if @list.save
+          format.html { redirect_to list_path(@list), notice: 'List was successfully created.' }
+          format.json { render :show, status: :created, location: @list }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @list.errors, status: :unprocessable_entity }
@@ -41,6 +43,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

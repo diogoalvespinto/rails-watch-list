@@ -1,13 +1,12 @@
 <div class="container">
-<h1 class="text-center">Watchlists</h1>
+  <h1 class="text-center">Watchlists</h1>
 
-<div class="d-flex justify-content-center">
-<div class= "m-4 text-center">
-  <% @lists.each do |list| %>
-      <p>
-      <%= link_to list.name.capitalize, list, :class => "btn btn-outline-secondary btn-sm" %>
-      </p>
-  <% end %>
+
+  <div class="d-flex align-items-start flex-column align-items-center m-5" style="height: 200px;">
+    <% @lists.each do |list| %>
+      <div class="card-category d-flex align-self-stretch m-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+        <%= link_to list.name.capitalize, list, :class => "d-flex justify-content-center" %>
+      </div>
+    <% end %>
   </div>
-</div>
 </div>

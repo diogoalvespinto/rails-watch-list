@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="d-flex align-items-start flex-column align-items-center m-5" style="height: 200px;">
+    <div class="card-category d-flex align-self-stretch m-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+    </div>
+  </div>
+</div>
+
   <div class="cards d-flex justify-content-center">
     <div class="row col-sm-12 d-flex .align-content-start">
       <% @list.bookmarks.each do |bookmark| %>
