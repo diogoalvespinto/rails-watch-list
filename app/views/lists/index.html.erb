@@ -1,12 +1,13 @@
-<h1>Movie lists</h1>
+<div class="container">
+<h1 class="text-center">Movie lists</h1>
 
-<div>
+<div class="d-flex justify-content-center">
+<div class= "m-4 text-center">
   <% @lists.each do |list| %>
-    <%= list.name.capitalize %>
-    <p>
-      <%= link_to "Show this list", list %>
-    </p>
+      <p>
+      <%= link_to list.name.capitalize, list, :class => "btn btn-outline-secondary btn-sm" %>
+      </p>
   <% end %>
+  </div>
 </div>
-
-<%= link_to "New list", new_list_path %>
+</div>
